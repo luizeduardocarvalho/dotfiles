@@ -43,6 +43,12 @@ in
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.starship = {
     enable = true;
     settings = {
@@ -56,9 +62,23 @@ in
     };
   };
 
+  programs.ghostty = {
+    enable = true;
+    package = null;
+    enableZshIntegration = true;
+    settings = {
+      font-size = 15;
+      theme = "Rose Pine Moon";
+      macos-option-as-alt = true;
+      font-family = "Hack Nerd Font";
+      background-opacity = 0.8;
+      window-padding-x = "10,0";
+      background-blur = 50;
+      window-decoration = false;
+    };
+  };
+
   # Edit-in-place: the real file stays in my repo, ~/.config just points at it.
-  home.file.".config/ghostty".source =
-    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/ghostty";
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/nvim";
   home.file.".config/herdr".source =
