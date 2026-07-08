@@ -16,6 +16,11 @@ in
     jq        # json on the command line
     lazygit
     neovim
+    git
+    gh
+    direnv
+    mise
+    aerospace
     nerd-fonts.hack
   ];
   fonts.fontconfig.enable = true;

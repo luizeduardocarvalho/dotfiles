@@ -13,7 +13,7 @@
   };
 
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
     let user = "luizcarvalho";
     in
     {
@@ -22,13 +22,14 @@
         modules = [ 
           ./configuration.nix
           nix-homebrew.darwinModules.nix-homebrew
-	  home-manager.darwinModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.extraSpecialArgs = { inherit user; };
-	    home-manager.users.${user} = import ./home.nix;
-	  }
+	        home-manager.darwinModules.home-manager
+	        {
+	          home-manager.useGlobalPkgs = true;
+	          home-manager.useUserPackages = true;
+	          home-manager.extraSpecialArgs = { inherit user; };
+	          home-manager.users.${user} = import ./home.nix;
+	          home-manager.backupFileExtension = "hm-backup";
+	        }
         ];
       };
     };

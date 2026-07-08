@@ -44,7 +44,6 @@
       "herdr"
     ];
     casks = [
-      "aerospace"
       "dotnet-sdk"
       "gcloud-cli"
       "ghostty"
