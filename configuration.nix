@@ -27,6 +27,7 @@
   };
   nix-homebrew = {
     enable = true;
+    autoMigrate = true;
     inherit user;
   };
   homebrew = {
@@ -35,11 +36,21 @@
     onActivation.autoUpdate = true;
     onActivation.extraFlags = [ "--force" ];
     brews = [
+      "cocoapods"
+      "fastlane"
+      "swiftlint"
+      "xcodegen"
+      "xcodes"
+      "gcc"
       "herdr"
     ];
     casks = [
+      "aerospace"
+      "dotnet-sdk"
+      "gcloud-cli"
       "ghostty"
       "claude-code"
+      "ngrok"
     ];
   };
 }
