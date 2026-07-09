@@ -1,0 +1,19 @@
+# Per-directory GitHub identity. Drop `use personal` or `use work` in an
+# .envrc to switch the active gh account (credential helper reads
+# GH_CONFIG_DIR) and the git commit author for everything under that tree.
+
+use_personal() {
+  export GH_CONFIG_DIR="$HOME/.config/gh-personal"
+  export GIT_AUTHOR_NAME="Luiz Eduardo Carvalho"
+  export GIT_AUTHOR_EMAIL="42449914+luizeduardocarvalho@users.noreply.github.com"
+  export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+  export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+}
+
+use_work() {
+  export GH_CONFIG_DIR="$HOME/.config/gh-work"
+  export GIT_AUTHOR_NAME="Luiz Eduardo Carvalho"
+  export GIT_AUTHOR_EMAIL="220412764+luizferreiracarvalho@users.noreply.github.com"
+  export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+  export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+}
