@@ -9,11 +9,10 @@ in
   home.homeDirectory = "/Users/${user}";
   home.stateVersion = "24.11";
   home.packages = with pkgs; [
-    # cli i use constantly
-    ripgrep   # fast search
-    fd        # fast find
-    fzf       # fuzzy finder
-    jq        # json on the command line
+    ripgrep   
+    fd        
+    fzf       
+    jq      
     lazygit
     neovim
     git
@@ -22,9 +21,15 @@ in
     mise
     aerospace
     nerd-fonts.hack
+    nodejs_22
+    pnpm
   ];
   fonts.fontconfig.enable = true;
-  home.sessionVariables.EDITOR = "nvim";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    PNPM_HOME = "${config.home.homeDirectory}/.local/share/pnpm";
+  };
+  home.sessionPath = [ "${config.home.homeDirectory}/.local/share/pnpm/bin" ];
 
   programs.zsh = {
     enable = true;
@@ -83,6 +88,8 @@ in
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/nvim";
   home.file.".config/herdr".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/herdr";
+  home.file.".config/aerospace".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/aerospace";
   home.file.".claude/settings.json".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.claude/settings.json";
 
