@@ -7,8 +7,10 @@
   "mason.nvim": { "branch": "main", "commit": "fc98833b6da5de5a9c5b1446ac541577059555be" },
   "neogit": { "branch": "master", "commit": "6fc2fa890bd2031ed999c074daab0fb4feff20a5" },
   "nvim-lspconfig": { "branch": "master", "commit": "7af2c37192deae28d1305ae9e68544f7fb5408e1" },
+  "nvim-treesitter": { "branch": "master", "commit": "2cade9e3d105732b794bc37e7cb2dc53b1cf99dc" },
   "oil.nvim": { "branch": "master", "commit": "b73018b75affd13fa38e2fc94ef753b465f770d7" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "roslyn.nvim": { "branch": "main", "commit": "05ffc134f0b70ce2715c761745f1f78321fcfa9b" },
-  "snacks.nvim": { "branch": "main", "commit": "882c996cf28183f4d63640de0b4c02ec886d01f2" }
+  "snacks.nvim": { "branch": "main", "commit": "882c996cf28183f4d63640de0b4c02ec886d01f2" },
+  "tokyonight.nvim": { "branch": "main", "commit": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6" }
 }
