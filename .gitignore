@@ -1,0 +1,4 @@
+# herdr runtime state (dir is symlinked into this repo)
+home/.config/herdr/*.log
+home/.config/herdr/session.json
+home/.config/herdr/release-notes.json
