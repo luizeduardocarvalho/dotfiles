@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, lib, user, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/.dotfiles";
@@ -23,13 +23,25 @@ in
     nerd-fonts.hack
     nodejs_22
     pnpm
+    pulumi
+    spotify-player
+    firebase-tools
+    uv
   ];
   fonts.fontconfig.enable = true;
   home.sessionVariables = {
     EDITOR = "nvim";
     PNPM_HOME = "${config.home.homeDirectory}/.local/share/pnpm";
   };
-  home.sessionPath = [ "${config.home.homeDirectory}/.local/share/pnpm/bin" ];
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.local/share/pnpm/bin"
+    "${config.home.homeDirectory}/.local/bin"
+  ];
+
+  home.activation.graphifyy = lib.hm.dag.entryAfter [ "installPackages" ] ''
+    $DRY_RUN_CMD ${pkgs.uv}/bin/uv tool install --quiet graphifyy \
+      || echo "warning: 'uv tool install graphifyy' failed (offline?); run it manually later" >&2
+  '';
 
   programs.zsh = {
     enable = true;
@@ -45,6 +57,8 @@ in
       pull = "git pull";
       m = "git switch main";
       cc = "claude";
+      claude = "CLAUDE_CONFIG_DIR=$HOME/.claude-account1 command claude";
+      claude2 = "CLAUDE_CONFIG_DIR=$HOME/.claude-account2 command claude";
     };
   };
 
